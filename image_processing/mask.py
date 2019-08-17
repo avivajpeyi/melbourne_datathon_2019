@@ -1,22 +1,23 @@
-from . import tile
-from .tile import Tile
 from PIL import Image
+
+from .tile import Tile
 
 # The expected value of a Pixel in a mask file indicating that the pixel is
 # within that region.  Tuple value, (Red, Green, Blue, Alpha)
 IS_IN_MASK_PIXEL_VALUE = (0, 0, 0, 255)
 
+MASK_X = 48
+MASK_Y = 3
+
 
 class Mask(Tile):
-
     def apply_mask(self, image: Tile) -> Tile:
         masked_tile = Tile()
         masked_tile.image = Image.new("RGBA", self.image.size, (0, 0, 0, 0))
         # note: here self.image is the mask's image
         masked_tile.image = Image.composite(
-            image1=image.image,
-            image2=masked_tile.image,
-            mask=self.image)
+            image1=image.image, image2=masked_tile.image, mask=self.image
+        )
         return masked_tile
 
     def is_in_mask(self, pixel_x, pixel_y):

@@ -1,5 +1,5 @@
 # Melbourne Data Science Datathon: Satellite Intelligence
 
-
-
-![unmasked images](demo_files/unmasked.gif)
+Orignal Images             |  Masked Images
+:-------------------------:|:-------------------------:
+![images](demo_files/timeseries.gif)  |  ![masked images](demo_files/masked_timeseries.gif)

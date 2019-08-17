@@ -26,6 +26,19 @@ class Tile:
     def filename(self):
         return self._filename
 
+    def translate(self, transform_x, transform_y):
+        """
+        (ax + by + c, dx + ey +f)
+        :return:
+        """
+        a = e = 1
+        b = d = 0
+        c = transform_x
+        f = transform_y
+        img = self.image
+        img = img.transform(img.size, Image.AFFINE, (a, b, c, d, e, f))
+        self.image = img
+
     def flip_vertical(self):
         self.image = self.image.transpose(Image.FLIP_TOP_BOTTOM)
 
