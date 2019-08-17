@@ -1,7 +1,8 @@
-import logging
-from typing import List, Optional
-import os
 import glob
+import logging
+import os
+from typing import Optional
+
 from PIL import Image
 
 # The initial release contains only one tile, so lets hardcode its location
@@ -13,8 +14,9 @@ TILE_Y = 10240
 WIDTH_PX = 512
 HEIGHT_PX = 512
 
-class Tile():
-    def __init__(self, filename:Optional[str]=None):
+
+class Tile:
+    def __init__(self, filename: Optional[str] = None):
         self.width = WIDTH_PX
         self.height = HEIGHT_PX
         if filename:
@@ -24,8 +26,16 @@ class Tile():
     def filename(self):
         return self._filename
 
+    def flip_vertical(self):
+        self.image = self.image.transpose(Image.FLIP_TOP_BOTTOM)
+
+    def flip_horizontal(self):
+        self.image = self.image.transpose(Image.FLIP_LEFT_RIGHT)
+
     def rotate(self, angle):
-        self.image =  self.image.rotate(angle, resample=0, expand=0, center=None, translate=None, fillcolor=None)
+        self.image = self.image.rotate(
+            angle, resample=0, expand=0, center=None, translate=None, fillcolor=None
+        )
 
     @filename.setter
     def filename(self, filename):
@@ -63,6 +73,3 @@ def get_timeseries_image_paths(tile_x, tile_y, band):
     logging.info(f"Searching for images in {path}")
     images = glob.glob(path)
     return images
-
-
-
