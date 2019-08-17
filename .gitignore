@@ -3,8 +3,8 @@
 *data/
 *tests/test_files/
 *.idea/
-*__pycache__/
-*.pytest_cache/
+*__pycache__/*
+*.pytest_cache/*
 
 
 # Compiled python
