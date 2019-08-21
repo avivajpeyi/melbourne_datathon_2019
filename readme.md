@@ -1,6 +1,6 @@
 # [Melbourne Data Science Datathon: Satellite Intelligence](http://www.datasciencemelbourne.com/datathon/)
 
-
+[Link to data](https://medium.com/satellite-intelligence).
 
 Orignal Images             |  Masked Images
 :-------------------------:|:-------------------------:
