@@ -1,8 +1,9 @@
 import logging
 import os
 
-from image_processing import mask, tile, utils
 from tqdm import tqdm
+
+from image_processing import mask, tile, utils
 
 logging.basicConfig(level=logging.INFO)
 
